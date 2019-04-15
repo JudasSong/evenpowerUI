@@ -1,0 +1,55 @@
+{
+  "开发指南": [
+    {
+      "name": "giud",
+      "path": "/giud",
+      "desc": "介绍"
+    },
+    {
+      "name": "install",
+      "path": "/install",
+      "desc": "安装"
+    },
+    {
+      "name": "start",
+      "path": "/start",
+      "desc": "开始"
+    }
+  ],
+  "组件": [
+    {
+      "desc": "basic",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "Icon 图标",
+          "name": "icon",
+          "path": "/icon"
+        },
+        {
+          "desc": "Dialog 按钮",
+          "name": "dialog",
+          "path": "/dialog"
+        }
+      ]
+    },
+    {
+      "desc": "Navigation",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "TopViewMenu 适配导航菜单",
+          "name": "topviewmenu",
+          "path": "/topviewmenu"
+        }
+      ]
+    }
+  ],
+  "更新日志": [
+    {
+      "name": "logs",
+      "path": "/logs",
+      "desc": "日志"
+    }
+  ]
+}

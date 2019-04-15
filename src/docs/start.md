@@ -1,27 +1,4 @@
-# evenpower-ui
-
-> 偶次方
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at 127.0.0.1:8080
-npm run dev
-
-# 部署本工程进行编译
-npm run build
-
-# 发布到npm进行编译
-npm run build:npm
-```
-
-## 使用 npm 安装
-```bash
-npm install evenpower-ui --save
-```
+# 快速开始
 
 ----
 

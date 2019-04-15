@@ -1,14 +1,14 @@
 {
-  "name": "evenpower-ui",
-  "version": "1.0.0",
+  "name": "evenpowersui",
+  "version": "1.0.2",
   "description": "偶次方UI组件",
   "author": "minant <295446101@qq.com>",
   "license": "MIT",
-  "main": "dist/evenpowerui.js",
+  "main": "dist/evenpowerui/evenpowerui.js",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:ynqc/toast.git"
+    "url": "git@github.com:JudasSong/evenpowerUI.git"
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -18,6 +18,7 @@
     "build:npm": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "evenpowerui": "^1.0.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

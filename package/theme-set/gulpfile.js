@@ -25,14 +25,14 @@ gulp.task('compile', function() {
     }))
     .pipe(cssmin())
     // gulpif 第一个参数为true时,合并css,当false时,不合并css
-    .pipe(gulpif(true, concat('index.css')))
-    .pipe(gulp.dest('./lib'));
+    .pipe(gulpif(false, concat('index.css')))
+    .pipe(gulp.dest('../../dist/evenpowerui/theme-set/lib'));
 });
 
 gulp.task('iconfont', function() {
   return gulp.src('./src/fonts/**')
     .pipe(cssmin())
-    .pipe(gulp.dest('./lib/fonts'));
+    .pipe(gulp.dest('../../dist/evenpowerui/theme-set/lib/fonts'));
 });
 
 gulp.task('build', ['compile', 'iconfont']);

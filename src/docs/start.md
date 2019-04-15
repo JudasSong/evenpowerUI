@@ -7,8 +7,8 @@
 可以在项目的入口文件中引入所有组件或所需组件
 
 ```js
-import EvenpowerUI from 'evenpower-ui' // 引入组件库
-import 'evenpower-ui/package/theme-set/lib/index.css' // 引入样式库
+import EvenpowerUI from 'evenpowerui' // 引入组件库
+import 'evenpowerui/package/theme-set/lib/index.css' // 引入样式库
 
 Vue.use(EvenpowerUI)
 ```
@@ -18,7 +18,7 @@ Vue.use(EvenpowerUI)
 可以局部注册所需的组件，适用于与其他框架组合使用的场景
 
 ```js
-import { EpTopviewMenu } from 'evenpower-ui'
+import { EpTopviewMenu } from 'evenpowerui'
 
 export default {
   components: {
@@ -37,4 +37,4 @@ export default {
 
 ### 自定义主题
 
-`UI` 基于less,可修改 `evenpower-ui/packages/theme-set/src/var.less` 文件自定义主题
+`UI` 基于less,可修改 `evenpowerui/packages/theme-set/src/var.less` 文件自定义主题

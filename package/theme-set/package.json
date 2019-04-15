@@ -1,14 +1,14 @@
 {
   "name": "theme-set",
   "version": "1.0.0",
-  "description": "About evenpowers-ui theme",
+  "description": "About evenpower-ui theme",
   "main": "index.css",
   "scripts": {
     "dev": "gulp build && gulp watch",
     "build": "gulp build"
   },
   "keywords": [
-    "evenpowers-ui",
+    "evenpower-ui",
     "theme"
   ],
   "devDependencies": {

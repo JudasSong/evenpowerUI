@@ -13,6 +13,9 @@
           <li class="nav-item">
             <router-link :to="{ path: '/install'}">组件</router-link>
           </li>
+          <li class="nav-item">
+            <router-link :to="{ path: '/dialog'}">演示用例</router-link>
+          </li>
         </ul>
       </div>
     </header>

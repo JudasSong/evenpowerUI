@@ -6,14 +6,19 @@ import 'vue2-animate/dist/vue2-animate.min.css'
 import './assets/css/index.less'; //导入基本样式
 import CodeBlock from './components/CodeBlock.vue'//高亮代码块组件
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
 // import EvenpowerUI from '../package/index'
 // import '../package/theme-set/lib/index.css' //导入UI样式
 import EvenpowerUI from 'evenpowerui'
 import 'evenpowerui/package/theme-set/lib/index.css' //导入UI样式
 
-Vue.component('code-block', CodeBlock)
+Vue.component('code-block', CodeBlock);
 Vue.use(EvenpowerUI);
-Vue.config.productionTip = false
+Vue.use(ElementUI);
+
+Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',

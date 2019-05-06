@@ -1,0 +1,4 @@
+{
+  "moreDialog": "./packages/moreDialog/index.js",
+  "topViewMenu": "./packages/topViewMenu/index.js"
+}

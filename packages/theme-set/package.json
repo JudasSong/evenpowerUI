@@ -1,0 +1,30 @@
+{
+  "name": "theme-set",
+  "version": "1.0.0",
+  "description": "About evenpower-ui theme",
+  "main": "index.css",
+  "scripts": {
+    "dev": "gulp build && gulp watch",
+    "build": "gulp build"
+  },
+  "keywords": [
+    "evenpowerui",
+    "theme"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.4.3",
+    "cssnano": "^4.1.7",
+    "gulp": "^4.0.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-if": "^2.0.2",
+    "gulp-less": "^4.0.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "postcss-salad": "^1.0.5"
+  },
+  "dependencies": {},
+  "author": "minant <295446101@qq.com>",
+  "license": "MIT"
+}

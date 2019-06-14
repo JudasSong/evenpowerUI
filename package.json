@@ -16,11 +16,11 @@
     "url": "git@github.com:JudasSong/evenpowerUI.git"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.demo.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "clean": "rimraf lib && rimraf packages/*/lib && rimraf test/**/coverage",
-    "build": "node build/build.js",
+    "build": "rimraf dist && cross-env NODE_ENV=production && webpack --config build/webpack.prod.js",
     "build:file": "node build/bin/build-entry.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-set/gulpfile.js && cp-cli packages/theme-set/lib lib/theme-set",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
@@ -38,6 +38,8 @@
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-istanbul": "^4.1.1",
+    "babel-plugin-module-resolver": "^2.2.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",

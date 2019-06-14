@@ -6,36 +6,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
 const config = require('./config');
-
 const isProd = process.env.NODE_ENV === 'production';
-const isPlay = !!process.env.PLAY_ENV;
 
 const webpackConfig = {
-  mode: process.env.NODE_ENV,
-  entry: isProd ? {
-    docs: './examples/main.js',
+  mode: 'production',
+  entry: {
+    'docs': './examples/main.js',
     'evenpowerui': './src/index.js'
-  } : (isPlay ? './examples/play.js' : './examples/main.js'),
+  },
   output: {
-    path: path.resolve(process.cwd(), './examples/evenpowerui/'),
-    publicPath: process.env.CI_ENV || '',
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
     filename: '[name].[hash:7].js',
-    chunkFilename: isProd ? '[name].[hash:7].js' : '[name].js'
+    chunkFilename: '[name].[hash:7].js'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: config.alias,
     modules: ['node_modules']
   },
-  devServer: {
-    host: '0.0.0.0',
-    port: 8085,
-    publicPath: '/',
-    hot: true,
-    disableHostCheck: true //新增项，填入devServer下
+  externals: {
+    vue: 'Vue',
+    'vue-router': 'VueRouter',
+    'highlight.js': 'hljs'
   },
   performance: {
     hints: false
@@ -44,8 +40,7 @@ const webpackConfig = {
     children: false
   },
   module: {
-    rules: [
-      {
+    rules: [{
         enforce: 'pre',
         test: /\.(vue|jsx?)$/,
         exclude: /node_modules/,
@@ -69,16 +64,14 @@ const webpackConfig = {
       {
         test: /\.(scss|css|less)$/,
         use: [
-          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-          'sass-loader',
-          'less-loader'
+          MiniCssExtractPlugin.loader,
+          { loader: "css-loader" },
+          { loader: "less-loader" }
         ]
       },
       {
         test: /\.md$/,
-        use: [
-          {
+        use: [{
             loader: 'vue-loader',
             options: {
               compilerOptions: {
@@ -123,34 +116,22 @@ const webpackConfig = {
           preserveWhitespace: false
         }
       }
-    })
-  ],
-  optimization: {
-    minimizer: []
-  },
-  devtool: '#eval-source-map'
-};
-
-if (isProd) {
-  webpackConfig.externals = {
-    vue: 'Vue',
-    'vue-router': 'VueRouter',
-    'highlight.js': 'hljs'
-  };
-  webpackConfig.plugins.push(
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:7].css'
     })
-  );
-  webpackConfig.optimization.minimizer.push(
-    new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-      sourceMap: false
-    }),
-    new OptimizeCSSAssetsPlugin({})
-  );
-  webpackConfig.devtool = false;
-}
+  ],
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: false
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
+  devtool: false
+};
 
 module.exports = webpackConfig;

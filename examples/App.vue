@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header></Header>
-    <!-- <Container></Container> -->
-    <Content></Content>
+    <Container></Container>
+    <!-- <Content></Content> -->
   </div>
 </template>
 <script>

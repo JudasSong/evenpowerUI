@@ -17,7 +17,7 @@ module.exports = {
     chunkFilename: '[id].js',
     libraryTarget: 'umd',
     libraryExport: 'default',
-    library: 'evenpowerui',
+    library: 'ELEMENT',
     umdNamedDefine: true,
     globalObject: 'typeof self !== \'undefined\' ? self : this'
   },

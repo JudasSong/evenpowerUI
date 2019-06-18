@@ -9,7 +9,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const config = require('./config');
-const isProd = process.env.NODE_ENV === 'production';
+// const isProd = process.env.NODE_ENV === 'production';
 
 const webpackConfig = {
   mode: 'production',
@@ -19,7 +19,7 @@ const webpackConfig = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/',
+    publicPath: '/evenpowerui/',
     filename: '[name].[hash:7].js',
     chunkFilename: '[name].[hash:7].js'
   },
@@ -29,9 +29,9 @@ const webpackConfig = {
     modules: ['node_modules']
   },
   externals: {
-    vue: 'Vue',
-    'vue-router': 'VueRouter',
-    'highlight.js': 'hljs'
+    // vue: 'Vue',
+    // 'vue-router': 'VueRouter',
+    // 'highlight.js': 'hljs'
   },
   performance: {
     hints: false
